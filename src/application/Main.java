@@ -18,6 +18,7 @@ public class Main extends Application {
 		this.primaryStage.setTitle("Pirate Game");
 
 		showGameDisplay();
+		GameController.getInstance();
 	}
 
 	/**
