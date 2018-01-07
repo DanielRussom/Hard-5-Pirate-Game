@@ -18,4 +18,16 @@ public class Pirate {
 	public Pirate(Ability[] abilities) {
 		this.abilities = abilities;
 	}
+
+	/**
+	 * Returns ability in passed in index loction
+	 * 
+	 * @param index
+	 *            - index of ability within abilities array
+	 * @return ability
+	 */
+	public Ability getAbilityByIndex(int index) {
+		return abilities[index];
+	}
+
 }
