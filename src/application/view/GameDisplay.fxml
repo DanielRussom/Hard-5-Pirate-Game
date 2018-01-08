@@ -14,8 +14,8 @@
       </Label>
       <Label layoutX="127.0" layoutY="260.0" text="Player Health" />
       <Label layoutX="397.0" layoutY="260.0" text="Enemy Health" />
-      <Label layoutX="140.0" layoutY="277.0" text="100/100" />
-      <Label layoutX="412.0" layoutY="277.0" text="100/100" />
+      <Label fx:id="playerHealth" layoutX="140.0" layoutY="277.0" text="PH" />
+      <Label fx:id="enemyHealth" layoutX="412.0" layoutY="277.0" text="PH" />
       <Button fx:id="actionButton1" layoutX="234.0" layoutY="361.0" mnemonicParsing="false" text="Attack1" />
       <Button fx:id="actionButton2" layoutX="311.0" layoutY="361.0" mnemonicParsing="false" text="Attack2" />
    </children>
