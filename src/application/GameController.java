@@ -2,6 +2,7 @@ package application;
 
 import application.model.Pirate;
 import application.view.GameDisplayController;
+import javafx.scene.control.Button;
 
 public class GameController {
 	private static GameController instance;
@@ -37,6 +38,8 @@ public class GameController {
 	public void setup() {
 		//TODO Tidy - Make more dynamic
 		gameDisplayController.setActionButton1Text(player.getAbilityByIndex(0).getName());
+		Button current = gameDisplayController.getActionButton1();
+		current.setText("TEST");
 		gameDisplayController.setActionButton2Text(player.getAbilityByIndex(1).getName());
 		gameDisplayController.updatePlayerHealth(player.getMaxHealth(), player.getCurrentHealth());
 		gameDisplayController.updateEnemyHealth(enemy.getMaxHealth(), enemy.getCurrentHealth());

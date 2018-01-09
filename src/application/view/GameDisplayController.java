@@ -19,6 +19,10 @@ public class GameDisplayController {
 		actionButton1.setText(text);
 	}
 	
+	public Button getActionButton1() {
+		return actionButton1;
+	}
+	
 	public void setActionButton2Text(String text) {
 		actionButton2.setText(text);
 	}

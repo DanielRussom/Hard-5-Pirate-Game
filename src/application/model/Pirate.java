@@ -8,8 +8,8 @@ public class Pirate {
 	 * Default Pirate constructor with preset abilities
 	 */
 	public Pirate() {
-		abilities[0] = new Ability("Attack", 10, 0);
-		abilities[1] = new Ability("Strong Attack", 20, 3);
+		abilities[0] = new Ability("Attack", 10, 0, 100);
+		abilities[1] = new Ability("Strong Attack", 20, 3, 100);
 		maxHealth = 100;
 		currentHealth = maxHealth;
 	}
