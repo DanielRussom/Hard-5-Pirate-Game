@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+
 import application.model.Pirate;
 import application.view.GameDisplayController;
 import javafx.scene.control.Button;
@@ -38,9 +40,13 @@ public class GameController {
 	public void setup() {
 		//TODO Tidy - Make more dynamic
 		gameDisplayController.setActionButton1Text(player.getAbilityByIndex(0).getName());
+		gameDisplayController.initAbilityButtons();
+		ArrayList<Button> actionButtons = gameDisplayController.getActionButtons();
+		for(int i = 0; i < actionButtons.size(); i++) {
+			actionButtons.get(i).setText("TEST2");
+		}
 		Button current = gameDisplayController.getActionButton1();
-		current.setText("TEST");
-		gameDisplayController.setActionButton2Text(player.getAbilityByIndex(1).getName());
+		//gameDisplayController.setActionButton2Text(player.getAbilityByIndex(1).getName());
 		gameDisplayController.updatePlayerHealth(player.getMaxHealth(), player.getCurrentHealth());
 		gameDisplayController.updateEnemyHealth(enemy.getMaxHealth(), enemy.getCurrentHealth());
 	}

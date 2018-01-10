@@ -1,5 +1,7 @@
 package application.view;
 
+import java.util.ArrayList;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,6 +16,7 @@ public class GameDisplayController {
 	@FXML
 	Label enemyHealth;
 	
+	ArrayList<Button> actionButtons = new ArrayList<Button>();
 	
 	public void setActionButton1Text(String text) {
 		actionButton1.setText(text);
@@ -33,5 +36,18 @@ public class GameDisplayController {
 	
 	public void updateEnemyHealth(int maxHealth, int currentHealth) {
 		enemyHealth.setText(currentHealth + "/" + maxHealth);
+	}
+	
+	public void initAbilityButtons() {
+		actionButtons.add(actionButton1);
+		actionButtons.add(actionButton2);
+		
+	}
+
+	/**
+	 * @return the actionButtons
+	 */
+	public ArrayList<Button> getActionButtons() {
+		return actionButtons;
 	}
 }
