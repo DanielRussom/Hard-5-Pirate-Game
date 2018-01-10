@@ -42,11 +42,12 @@ public class GameController {
 		gameDisplayController.setActionButton1Text(player.getAbilityByIndex(0).getName());
 		gameDisplayController.initAbilityButtons();
 		ArrayList<Button> actionButtons = gameDisplayController.getActionButtons();
+		// TODO Update this with validation!
 		for(int i = 0; i < actionButtons.size(); i++) {
-			actionButtons.get(i).setText("TEST2");
+			actionButtons.get(i).setText(player.getAbilityByIndex(i).getName());
 		}
 		Button current = gameDisplayController.getActionButton1();
-		//gameDisplayController.setActionButton2Text(player.getAbilityByIndex(1).getName());
+
 		gameDisplayController.updatePlayerHealth(player.getMaxHealth(), player.getCurrentHealth());
 		gameDisplayController.updateEnemyHealth(enemy.getMaxHealth(), enemy.getCurrentHealth());
 	}
