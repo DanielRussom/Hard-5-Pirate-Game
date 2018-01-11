@@ -34,6 +34,13 @@ public class Pirate {
 	}
 
 	/**
+	 * @return the abilities
+	 */
+	public Ability[] getAbilities() {
+		return abilities;
+	}
+
+	/**
 	 * @return the maxHealth
 	 */
 	public int getMaxHealth() {

@@ -9,9 +9,9 @@ import javafx.scene.control.Button;
 public class GameController {
 	private static GameController instance;
 	private GameDisplayController gameDisplayController;
-	
+
 	private Pirate player;
-	
+
 	private Pirate enemy;
 
 	/**
@@ -33,27 +33,35 @@ public class GameController {
 		}
 		return instance;
 	}
-	
+
 	/**
 	 * Sets up the game
 	 */
 	public void setup() {
-		//TODO Tidy - Make more dynamic
-		gameDisplayController.setActionButton1Text(player.getAbilityByIndex(0).getName());
+		// TODO Tidy - Make more dynamic
 		gameDisplayController.initAbilityButtons();
 		ArrayList<Button> actionButtons = gameDisplayController.getActionButtons();
-		// TODO Update this with validation!
-		for(int i = 0; i < actionButtons.size(); i++) {
-			actionButtons.get(i).setText(player.getAbilityByIndex(i).getName());
+		for (int i = 0; i < actionButtons.size(); i++) {
+			Button current = actionButtons.get(i);
+			// Hides the action button if there aren't enough abilities
+			if (player.getAbilityByIndex(i) == null) {
+				current.setVisible(false);
+				continue;
+			}
+			// Displays current ability text on current button
+			current.setVisible(true);
+			current.setText(player.getAbilityByIndex(i).getName());
+			// Disables the ability if it is on cooldown
+			current.setDisable(player.getAbilityByIndex(i).getCurrentCooldown() > 0);
 		}
-		Button current = gameDisplayController.getActionButton1();
-
+		// Updates health labels
 		gameDisplayController.updatePlayerHealth(player.getMaxHealth(), player.getCurrentHealth());
 		gameDisplayController.updateEnemyHealth(enemy.getMaxHealth(), enemy.getCurrentHealth());
 	}
 
 	/**
-	 * @param gameDisplayController the gameDisplayController to set
+	 * @param gameDisplayController
+	 *            the gameDisplayController to set
 	 */
 	public void setGameDisplayController(GameDisplayController gameDisplayController) {
 		this.gameDisplayController = gameDisplayController;
@@ -67,7 +75,8 @@ public class GameController {
 	}
 
 	/**
-	 * @param player the player to set
+	 * @param player
+	 *            the player to set
 	 */
 	public void setPlayer(Pirate player) {
 		this.player = player;
@@ -81,11 +90,11 @@ public class GameController {
 	}
 
 	/**
-	 * @param enemy the enemy to set
+	 * @param enemy
+	 *            the enemy to set
 	 */
 	public void setEnemy(Pirate enemy) {
 		this.enemy = enemy;
 	}
-	
-	
+
 }
