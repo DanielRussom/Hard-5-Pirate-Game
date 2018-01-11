@@ -4,6 +4,7 @@ public class Pirate {
 	Ability[] abilities = new Ability[2];
 	int maxHealth;
 	int currentHealth;
+
 	/**
 	 * Default Pirate constructor with preset abilities
 	 */
@@ -20,6 +21,17 @@ public class Pirate {
 	 */
 	public Pirate(Ability[] abilities) {
 		this.abilities = abilities;
+	}
+
+	/**
+	 * Reduces current health after being attacked
+	 * 
+	 * @param power
+	 *            - Power of received attack
+	 */
+	public void takeHit(int power) {
+		System.out.println("Hit!");
+		currentHealth -= power;
 	}
 
 	/**
@@ -48,7 +60,8 @@ public class Pirate {
 	}
 
 	/**
-	 * @param maxHealth the maxHealth to set
+	 * @param maxHealth
+	 *            the maxHealth to set
 	 */
 	public void setMaxHealth(int maxHealth) {
 		this.maxHealth = maxHealth;
@@ -62,7 +75,8 @@ public class Pirate {
 	}
 
 	/**
-	 * @param currentHealth the currentHealth to set
+	 * @param currentHealth
+	 *            the currentHealth to set
 	 */
 	public void setCurrentHealth(int currentHealth) {
 		this.currentHealth = currentHealth;

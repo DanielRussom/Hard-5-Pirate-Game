@@ -1,5 +1,7 @@
 package application.model;
 
+import java.util.Random;
+
 public class Ability {
 	String name;
 	int power;
@@ -25,6 +27,19 @@ public class Ability {
 		this.hitChance = hitChance;
 	}
 
+	public void perform() {
+		if(currentCooldown < 0) {
+			System.out.println("Cooldown!");
+			return;
+		}
+		Random rand = new Random();
+		int value = rand.nextInt(100);
+		if(value > hitChance) {
+			System.out.println("Missed!");
+		}
+		//TODO Decide targetting method
+	}
+	
 	/**
 	 * @return the name
 	 */
