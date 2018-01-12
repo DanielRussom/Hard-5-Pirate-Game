@@ -2,6 +2,8 @@ package application.model;
 
 import java.util.Random;
 
+import application.GameController;
+
 public class Ability {
 	String name;
 	int power;
@@ -28,7 +30,7 @@ public class Ability {
 	}
 
 	public void perform(Pirate user) {
-		if(currentCooldown < 0) {
+		if(currentCooldown > 0) {
 			System.out.println("Cooldown!");
 			return;
 		}
@@ -40,6 +42,8 @@ public class Ability {
 		//TODO Decide targetting method
 		user.getTarget().takeHit(power);
 		currentCooldown = cooldown;
+		GameController.getInstance().refreshButtons();
+		user.decrementCooldowns();
 	}
 	
 	/**

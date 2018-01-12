@@ -14,7 +14,8 @@ public class Pirate {
 	}
 
 	/**
-	 * @param target the target to set
+	 * @param target
+	 *            the target to set
 	 */
 	public void setTarget(Pirate target) {
 		this.target = target;
@@ -47,10 +48,23 @@ public class Pirate {
 	public void takeHit(int power) {
 		System.out.println("Hit!");
 		currentHealth -= power;
-		if(currentHealth < 0) {
+		if (currentHealth < 0) {
 			currentHealth = 0;
 		}
 		System.out.println(currentHealth + "/" + maxHealth);
+	}
+
+	// TODO performTurn()?
+	/**
+	 * Decrements all active cooldowns
+	 */
+	public void decrementCooldowns() {
+		for (Ability current : abilities) {
+			if (current.currentCooldown > 0) {
+				current.currentCooldown -= 1;
+				System.out.println(current.getName() + current.currentCooldown);
+			}
+		}
 	}
 
 	/**

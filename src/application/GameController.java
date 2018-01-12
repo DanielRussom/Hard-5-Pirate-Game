@@ -33,13 +33,11 @@ public class GameController {
 		}
 		return instance;
 	}
-	
+
 	/**
-	 * Sets up the game
+	 * Handles refreshing the action button display
 	 */
-	public void setup() {
-		// TODO Tidy - Make more dynamic
-		gameDisplayController.initAbilityButtons();
+	public void refreshButtons() {
 		ArrayList<Button> actionButtons = gameDisplayController.getActionButtons();
 		for (int i = 0; i < actionButtons.size(); i++) {
 			Button current = actionButtons.get(i);
@@ -54,8 +52,17 @@ public class GameController {
 			// Disables the ability if it is on cooldown
 			current.setDisable(player.getAbilityByIndex(i).getCurrentCooldown() > 0);
 		}
-		//TODO Change this if multiple targets are added
-		//Default targets
+	}
+
+	/**
+	 * Sets up the game
+	 */
+	public void setup() {
+		// TODO Tidy - Make more dynamic
+		gameDisplayController.initAbilityButtons();
+		refreshButtons();
+		// TODO Change this if multiple targets are added
+		// Default targets
 		player.setTarget(enemy);
 		enemy.setTarget(player);
 		// Updates health labels
