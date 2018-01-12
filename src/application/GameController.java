@@ -33,7 +33,7 @@ public class GameController {
 		}
 		return instance;
 	}
-
+	
 	/**
 	 * Sets up the game
 	 */
@@ -54,6 +54,10 @@ public class GameController {
 			// Disables the ability if it is on cooldown
 			current.setDisable(player.getAbilityByIndex(i).getCurrentCooldown() > 0);
 		}
+		//TODO Change this if multiple targets are added
+		//Default targets
+		player.setTarget(enemy);
+		enemy.setTarget(player);
 		// Updates health labels
 		gameDisplayController.updatePlayerHealth(player.getMaxHealth(), player.getCurrentHealth());
 		gameDisplayController.updateEnemyHealth(enemy.getMaxHealth(), enemy.getCurrentHealth());

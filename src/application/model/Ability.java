@@ -27,7 +27,7 @@ public class Ability {
 		this.hitChance = hitChance;
 	}
 
-	public void perform() {
+	public void perform(Pirate user) {
 		if(currentCooldown < 0) {
 			System.out.println("Cooldown!");
 			return;
@@ -38,6 +38,8 @@ public class Ability {
 			System.out.println("Missed!");
 		}
 		//TODO Decide targetting method
+		user.getTarget().takeHit(power);
+		currentCooldown = cooldown;
 	}
 	
 	/**

@@ -3,6 +3,7 @@ package application.view;
 import java.util.ArrayList;
 
 import application.GameController;
+import application.model.Pirate;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,12 +22,15 @@ public class GameDisplayController {
 	
 	@FXML 
 	public void performFirstAbility() {
-		GameController.getInstance().getPlayer().getAbilityByIndex(0).perform();
+		Pirate player = GameController.getInstance().getPlayer();
+		player.getAbilityByIndex(0).perform(player);
 	}
 	
 	@FXML 
 	public void performSecondAbility() {
-		GameController.getInstance().getPlayer().getAbilityByIndex(1).perform();
+		Pirate player = GameController.getInstance().getPlayer();
+		player.getAbilityByIndex(1).perform(player);
+		
 	}
 	
 	public void setActionButton1Text(String text) {

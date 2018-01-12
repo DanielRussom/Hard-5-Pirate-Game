@@ -4,6 +4,21 @@ public class Pirate {
 	Ability[] abilities = new Ability[2];
 	int maxHealth;
 	int currentHealth;
+	Pirate target;
+
+	/**
+	 * @return the target
+	 */
+	public Pirate getTarget() {
+		return target;
+	}
+
+	/**
+	 * @param target the target to set
+	 */
+	public void setTarget(Pirate target) {
+		this.target = target;
+	}
 
 	/**
 	 * Default Pirate constructor with preset abilities
@@ -32,6 +47,10 @@ public class Pirate {
 	public void takeHit(int power) {
 		System.out.println("Hit!");
 		currentHealth -= power;
+		if(currentHealth < 0) {
+			currentHealth = 0;
+		}
+		System.out.println(currentHealth + "/" + maxHealth);
 	}
 
 	/**
