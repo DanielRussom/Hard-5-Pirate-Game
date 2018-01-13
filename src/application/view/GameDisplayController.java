@@ -23,13 +23,15 @@ public class GameDisplayController {
 	@FXML 
 	public void performFirstAbility() {
 		Pirate player = GameController.getInstance().getPlayer();
-		player.getAbilityByIndex(0).perform(player);
+		player.setSelectedAbility(0);
+		player.performAttack();
 	}
 	
 	@FXML 
 	public void performSecondAbility() {
 		Pirate player = GameController.getInstance().getPlayer();
-		player.getAbilityByIndex(1).perform(player);
+		player.setSelectedAbility(1);
+		player.performAttack();
 		
 	}
 	

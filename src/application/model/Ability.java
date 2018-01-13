@@ -42,8 +42,6 @@ public class Ability {
 		//TODO Decide targetting method
 		user.getTarget().takeHit(power);
 		currentCooldown = cooldown;
-		GameController.getInstance().refreshButtons();
-		user.decrementCooldowns();
 	}
 	
 	/**

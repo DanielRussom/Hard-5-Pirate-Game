@@ -1,10 +1,38 @@
 package application.model;
 
+import application.GameController;
+
 public class Pirate {
 	Ability[] abilities = new Ability[2];
 	int maxHealth;
 	int currentHealth;
 	Pirate target;
+	Ability selectedAbility;
+
+	/**
+	 * @return the selectedAbility
+	 */
+	public Ability getSelectedAbility() {
+		return selectedAbility;
+	}
+
+	/**
+	 * Sets the selected ability by index in abilities array
+	 * 
+	 * @param selectedAbilityIndex
+	 *            - the index of the ability to set
+	 */
+	public void setSelectedAbility(int selectedAbilityIndex) {
+		this.selectedAbility = abilities[selectedAbilityIndex];
+	}
+
+	/**
+	 * @param selectedAbility
+	 *            the selectedAbility to set
+	 */
+	public void setSelectedAbility(Ability selectedAbility) {
+		this.selectedAbility = selectedAbility;
+	}
 
 	/**
 	 * @return the target
@@ -39,6 +67,12 @@ public class Pirate {
 		this.abilities = abilities;
 	}
 
+	public void performAttack() {
+		selectedAbility.perform(this);
+		GameController.getInstance().refreshButtons();
+		decrementCooldowns();
+	}
+	
 	/**
 	 * Reduces current health after being attacked
 	 * 
