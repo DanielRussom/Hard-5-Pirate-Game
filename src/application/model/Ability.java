@@ -1,16 +1,12 @@
 package application.model;
 
-import java.util.Random;
-
-import application.GameController;
-
-public class Ability {
+public abstract class Ability {
 	String name;
 	int power;
 	int cooldown;
 	int currentCooldown;
 	int hitChance;
-
+	
 	/**
 	 * 
 	 * @param name
@@ -28,21 +24,8 @@ public class Ability {
 		this.cooldown = cooldown;
 		this.hitChance = hitChance;
 	}
-
-	public void perform(Pirate user) {
-		if(currentCooldown > 0) {
-			System.out.println("Cooldown!");
-			return;
-		}
-		Random rand = new Random();
-		int value = rand.nextInt(100);
-		if(value > hitChance) {
-			System.out.println("Missed!");
-		}
-		//TODO Decide targetting method
-		user.getTarget().takeHit(power);
-		currentCooldown = cooldown;
-	}
+	
+	abstract public void perform(Pirate user, Pirate target);
 	
 	/**
 	 * @return the name

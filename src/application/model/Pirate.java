@@ -3,7 +3,7 @@ package application.model;
 import application.GameController;
 
 public class Pirate {
-	Ability[] abilities = new Ability[2];
+	Ability[] abilities = new Ability[4];
 	int maxHealth;
 	int currentHealth;
 	Pirate target;
@@ -53,8 +53,9 @@ public class Pirate {
 	 * Default Pirate constructor with preset abilities
 	 */
 	public Pirate() {
-		abilities[0] = new Ability("Attack", 10, 0, 100);
-		abilities[1] = new Ability("Strong Attack", 20, 3, 100);
+		abilities[0] = new DamagingAbility("Attack", 10, 0, 100);
+		abilities[1] = new DamagingAbility("Strong Attack", 20, 3, 100);
+		abilities[2] = new HealingAbility("Heal", 25, 4, 100);
 		maxHealth = 100;
 		currentHealth = maxHealth;
 	}
@@ -68,7 +69,7 @@ public class Pirate {
 	}
 
 	public void performAttack() {
-		selectedAbility.perform(this);
+		selectedAbility.perform(this, target);
 		GameController.getInstance().refreshButtons();
 		decrementCooldowns();
 	}
