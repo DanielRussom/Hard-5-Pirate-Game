@@ -16,7 +16,9 @@
       <Label layoutX="397.0" layoutY="260.0" text="Enemy Health" />
       <Label fx:id="playerHealth" layoutX="140.0" layoutY="277.0" text="PH" />
       <Label fx:id="enemyHealth" layoutX="412.0" layoutY="277.0" text="PH" />
-      <Button fx:id="actionButton1" layoutX="234.0" layoutY="361.0" mnemonicParsing="false" onAction="#performFirstAbility" text="Attack1" />
-      <Button fx:id="actionButton2" layoutX="311.0" layoutY="361.0" mnemonicParsing="false" onAction="#performSecondAbility" text="Attack2" />
+      <Button fx:id="actionButton1" layoutX="122.0" layoutY="361.0" mnemonicParsing="false" onAction="#performFirstAbility" text="Attack1" />
+      <Button fx:id="actionButton2" layoutX="222.0" layoutY="361.0" mnemonicParsing="false" onAction="#performSecondAbility" text="Attack2" />
+      <Button fx:id="actionButton4" layoutX="422.0" layoutY="361.0" mnemonicParsing="false" onAction="#performFourthAbility" text="Attack4" />
+      <Button fx:id="actionButton3" layoutX="322.0" layoutY="361.0" mnemonicParsing="false" onAction="#performThirdAbility" text="Attack3" />
    </children>
 </AnchorPane>

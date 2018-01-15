@@ -14,51 +14,76 @@ public class GameDisplayController {
 	@FXML
 	Button actionButton2;
 	@FXML
+	Button actionButton3;
+	@FXML
+	Button actionButton4;
+	@FXML
 	Label playerHealth;
 	@FXML
 	Label enemyHealth;
-	
+
 	ArrayList<Button> actionButtons = new ArrayList<Button>();
-	
-	@FXML 
+
+	@FXML
 	public void performFirstAbility() {
 		Pirate player = GameController.getInstance().getPlayer();
 		player.setSelectedAbility(0);
 		player.performAttack();
 	}
-	
-	@FXML 
+
+	@FXML
 	public void performSecondAbility() {
 		Pirate player = GameController.getInstance().getPlayer();
 		player.setSelectedAbility(1);
 		player.performAttack();
-		
+
 	}
-	
+
+	@FXML
+	public void performThirdAbility() {
+		Pirate player = GameController.getInstance().getPlayer();
+		player.setSelectedAbility(2);
+		player.performAttack();
+
+	}
+
+	@FXML
+	public void performFourthAbility() {
+		Pirate player = GameController.getInstance().getPlayer();
+		player.setSelectedAbility(3);
+		player.performAttack();
+
+	}
+
 	public void setActionButton1Text(String text) {
 		actionButton1.setText(text);
 	}
-	
+
 	public Button getActionButton1() {
 		return actionButton1;
 	}
-	
+
 	public void setActionButton2Text(String text) {
 		actionButton2.setText(text);
 	}
-	
+
 	public void updatePlayerHealth(int maxHealth, int currentHealth) {
 		playerHealth.setText(currentHealth + "/" + maxHealth);
 	}
-	
+
 	public void updateEnemyHealth(int maxHealth, int currentHealth) {
 		enemyHealth.setText(currentHealth + "/" + maxHealth);
 	}
-	
+
+	/**
+	 * Initialises the ability button
+	 */
 	public void initAbilityButtons() {
 		actionButtons.add(actionButton1);
 		actionButtons.add(actionButton2);
-		
+		actionButtons.add(actionButton3);
+		actionButtons.add(actionButton4);
+
 	}
 
 	/**
