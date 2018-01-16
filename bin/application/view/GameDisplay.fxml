@@ -6,19 +6,19 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.GameDisplayController">
-   <children>
-      <Label layoutX="236.0" layoutY="14.0" text="Pirate Game">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="127.0" layoutY="260.0" text="Player Health" />
-      <Label layoutX="397.0" layoutY="260.0" text="Enemy Health" />
-      <Label fx:id="playerHealth" layoutX="140.0" layoutY="277.0" text="PH" />
-      <Label fx:id="enemyHealth" layoutX="412.0" layoutY="277.0" text="PH" />
-      <Button fx:id="actionButton1" layoutX="154.0" layoutY="361.0" mnemonicParsing="false" onAction="#performFirstAbility" text="Attack1" />
-      <Button fx:id="actionButton2" layoutX="231.0" layoutY="361.0" mnemonicParsing="false" onAction="#performSecondAbility" text="Attack2" />
-      <Button fx:id="actionButton4" layoutX="391.0" layoutY="361.0" mnemonicParsing="false" onAction="#performFourthAbility" text="Attack4" />
-      <Button fx:id="actionButton3" layoutX="308.0" layoutY="361.0" mnemonicParsing="false" onAction="#performThirdAbility" text="Attack3" />
-   </children>
+	<children>
+		<Label layoutX="236.0" layoutY="14.0" text="Pirate Game">
+			<font>
+				<Font size="24.0" />
+			</font>
+		</Label>
+		<Label layoutX="127.0" layoutY="260.0" text="Player Health" />
+		<Label layoutX="397.0" layoutY="260.0" text="Enemy Health" />
+		<Label fx:id="playerHealth" layoutX="140.0" layoutY="277.0" text="PH" />
+		<Label fx:id="enemyHealth" layoutX="412.0" layoutY="277.0" text="PH" />
+		<Button fx:id="actionButton1" layoutX="63.0" layoutY="350.0" mnemonicParsing="false" onAction="#performFirstAbility" prefHeight="25.0" prefWidth="100.0" text="Attack1" />
+		<Button fx:id="actionButton2" layoutX="188.0" layoutY="350.0" mnemonicParsing="false" onAction="#performSecondAbility" prefHeight="25.0" prefWidth="100.0" text="Attack2" />
+		<Button fx:id="actionButton3" layoutX="313.0" layoutY="350.0" mnemonicParsing="false" onAction="#performThirdAbility" prefHeight="25.0" prefWidth="100.0" text="Attack3" />
+		<Button fx:id="actionButton4" layoutX="438.0" layoutY="350.0" mnemonicParsing="false" onAction="#performFourthAbility" prefHeight="25.0" prefWidth="100.0" text="Attack4" />
+	</children>
 </AnchorPane>

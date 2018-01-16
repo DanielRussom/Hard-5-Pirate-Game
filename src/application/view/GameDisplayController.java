@@ -7,6 +7,7 @@ import application.model.Pirate;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 
 public class GameDisplayController {
 	@FXML
@@ -80,6 +81,10 @@ public class GameDisplayController {
 	 */
 	public void initAbilityButtons() {
 		actionButtons.add(actionButton1);
+		actionButton1.setTooltip(
+			    new Tooltip("")
+			);
+		actionButton1.getTooltip().setText("Name\nCooldown:test\\test\nPower:test\nHit Chance:test%");
 		actionButtons.add(actionButton2);
 		actionButtons.add(actionButton3);
 		actionButtons.add(actionButton4);
