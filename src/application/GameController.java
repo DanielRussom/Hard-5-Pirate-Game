@@ -2,6 +2,7 @@ package application;
 
 import java.util.ArrayList;
 
+import application.model.Ability;
 import application.model.Pirate;
 import application.view.GameDisplayController;
 import javafx.scene.control.Button;
@@ -40,17 +41,23 @@ public class GameController {
 	public void refreshButtons() {
 		ArrayList<Button> actionButtons = gameDisplayController.getActionButtons();
 		for (int i = 0; i < actionButtons.size(); i++) {
+			Ability currentAbility = player.getAbilityByIndex(i);
 			Button current = actionButtons.get(i);
 			// Hides the action button if there aren't enough abilities
-			if (player.getAbilityByIndex(i) == null) {
+			if (currentAbility == null) {
 				current.setVisible(false);
 				continue;
 			}
 			// Displays current ability text on current button
 			current.setVisible(true);
-			current.setText(player.getAbilityByIndex(i).getName());
+			current.setText(currentAbility.getName());
+			//TODO Move to seperate function in Ability? toString?
+			current.getTooltip()
+					.setText(currentAbility.getName() + "\nCooldown:" + currentAbility.getCurrentCooldown() + "\\"
+							+ currentAbility.getCooldown() + "\nPower:" + currentAbility.getPower()
+							+ "\nHit Chance:test%");
 			// Disables the ability if it is on cooldown
-			current.setDisable(player.getAbilityByIndex(i).getCurrentCooldown() > 0);
+			current.setDisable(currentAbility.getCurrentCooldown() > 0);
 		}
 	}
 
