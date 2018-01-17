@@ -86,4 +86,14 @@ public abstract class Ability {
 	public void setCurrentCooldown(int currentCooldown) {
 		this.currentCooldown = currentCooldown;
 	}
+	
+	public String tooltipMessage() {
+		String message = "";
+		message = name + "\n";
+		message += "Cooldown: TEST\n";
+		message += "Power:" + power + "\n";
+		message += "Hit Chance:" + hitChance + "%";
+		return message;
+		
+	}
 }

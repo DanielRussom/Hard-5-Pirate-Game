@@ -51,11 +51,8 @@ public class GameController {
 			// Displays current ability text on current button
 			current.setVisible(true);
 			current.setText(currentAbility.getName());
-			//TODO Move to seperate function in Ability? toString?
-			current.getTooltip()
-					.setText(currentAbility.getName() + "\nCooldown:" + currentAbility.getCurrentCooldown() + "\\"
-							+ currentAbility.getCooldown() + "\nPower:" + currentAbility.getPower()
-							+ "\nHit Chance:test%");
+			// Updates the tooltip of the ability
+			current.getTooltip().setText(currentAbility.tooltipMessage());
 			// Disables the ability if it is on cooldown
 			current.setDisable(currentAbility.getCurrentCooldown() > 0);
 		}

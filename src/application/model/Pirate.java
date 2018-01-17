@@ -89,7 +89,6 @@ public class Pirate {
 		System.out.println(currentHealth + "/" + maxHealth);
 	}
 
-	// TODO performTurn()?
 	/**
 	 * Decrements all active cooldowns
 	 */
