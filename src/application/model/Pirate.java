@@ -95,6 +95,9 @@ public class Pirate {
 	 */
 	public void decrementCooldowns() {
 		for (Ability current : abilities) {
+			if(current == null) {
+				continue;
+			}
 			if (current.currentCooldown > 0) {
 				current.currentCooldown -= 1;
 				System.out.println(current.getName() + current.currentCooldown);

@@ -84,7 +84,6 @@ public class GameDisplayController {
 		actionButton1.setTooltip(
 			    new Tooltip("")
 			);
-		actionButton1.getTooltip().setText("Name\nCooldown:test\\test\nPower:test\nHit Chance:test%");
 		actionButtons.add(actionButton2);
 		actionButton2.setTooltip(
 			    new Tooltip("")
