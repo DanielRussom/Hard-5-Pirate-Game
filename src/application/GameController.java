@@ -65,10 +65,12 @@ public class GameController {
 		// TODO Tidy - Make more dynamic
 		gameDisplayController.initAbilityButtons();
 		refreshButtons();
+		gameDisplayController.setPlayerName(player.getName());
+		gameDisplayController.setEnemyName(enemy.getName());
 		// TODO Change this if multiple targets are added
 		// Default targets
 		player.setTarget(enemy);
-		enemy.setTarget(player);
+		enemy.setTarget(player);	
 		// Updates health labels
 		gameDisplayController.updatePlayerHealth(player.getMaxHealth(), player.getCurrentHealth());
 		gameDisplayController.updateEnemyHealth(enemy.getMaxHealth(), enemy.getCurrentHealth());
@@ -110,6 +112,12 @@ public class GameController {
 	 */
 	public void setEnemy(Pirate enemy) {
 		this.enemy = enemy;
+	}
+
+	public void updateHealth() {
+		gameDisplayController.updatePlayerHealth(player.getMaxHealth(), player.getCurrentHealth());
+		gameDisplayController.updateEnemyHealth(enemy.getMaxHealth(), enemy.getCurrentHealth());
+		
 	}
 
 }

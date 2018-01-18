@@ -3,6 +3,7 @@ package application.model;
 import application.GameController;
 
 public class Pirate {
+	String name = "Pirate";
 	Ability[] abilities = new Ability[4];
 	int maxHealth;
 	int currentHealth;
@@ -59,6 +60,32 @@ public class Pirate {
 		maxHealth = 100;
 		currentHealth = maxHealth;
 	}
+	
+	/**
+	 * Constructor with preset abilities and custom name
+	 */
+	public Pirate(String name) {
+		this.name = name;
+		abilities[0] = new DamagingAbility("Attack", 10, 0, 100);
+		abilities[1] = new DamagingAbility("Strong Attack", 20, 3, 100);
+		abilities[2] = new HealingAbility("Heal", 25, 4, 100);
+		maxHealth = 100;
+		currentHealth = maxHealth;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	/**
 	 * @param abilities
@@ -72,6 +99,7 @@ public class Pirate {
 		selectedAbility.perform(this, target);
 		GameController.getInstance().refreshButtons();
 		decrementCooldowns();
+		GameController.getInstance().updateHealth();
 	}
 	
 	/**

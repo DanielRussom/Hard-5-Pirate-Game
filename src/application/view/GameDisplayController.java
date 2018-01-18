@@ -19,7 +19,11 @@ public class GameDisplayController {
 	@FXML
 	Button actionButton4;
 	@FXML
+	Label playerName;
+	@FXML
 	Label playerHealth;
+	@FXML
+	Label enemyName;
 	@FXML
 	Label enemyHealth;
 
@@ -66,6 +70,14 @@ public class GameDisplayController {
 
 	public void setActionButton2Text(String text) {
 		actionButton2.setText(text);
+	}
+	
+	public void setPlayerName(String name) {
+		playerName.setText(name);
+	}
+	
+	public void setEnemyName(String name) {
+		enemyName.setText(name);
 	}
 
 	public void updatePlayerHealth(int maxHealth, int currentHealth) {
