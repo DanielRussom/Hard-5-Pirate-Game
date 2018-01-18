@@ -58,9 +58,9 @@ public class Pirate {
 		abilities[1] = new DamagingAbility("Strong Attack", 20, 3, 100);
 		abilities[2] = new HealingAbility("Heal", 25, 4, 100);
 		maxHealth = 100;
-		currentHealth = maxHealth;
+		currentHealth = 50;
 	}
-	
+
 	/**
 	 * Constructor with preset abilities and custom name
 	 */
@@ -81,7 +81,8 @@ public class Pirate {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -96,12 +97,17 @@ public class Pirate {
 	}
 
 	public void performAttack() {
-		selectedAbility.perform(this, target);
+		//TODO Change this workaround if multiple enemies are added
+		if (selectedAbility instanceof HealingAbility) {
+			selectedAbility.perform(this, this);
+		} else {
+			selectedAbility.perform(this, target);
+		}
 		GameController.getInstance().refreshButtons();
 		decrementCooldowns();
 		GameController.getInstance().updateHealth();
 	}
-	
+
 	/**
 	 * Reduces current health after being attacked
 	 * 
@@ -114,7 +120,20 @@ public class Pirate {
 		if (currentHealth < 0) {
 			currentHealth = 0;
 		}
-		System.out.println(currentHealth + "/" + maxHealth);
+	}
+
+	/**
+	 * Increases current health after being healed
+	 * 
+	 * @param power
+	 *            - Power of received heal
+	 */
+	public void takeHeal(int power) {
+		System.out.println("Heal!");
+		currentHealth += power;
+		if (currentHealth > maxHealth) {
+			currentHealth = maxHealth;
+		}
 	}
 
 	/**
@@ -122,7 +141,7 @@ public class Pirate {
 	 */
 	public void decrementCooldowns() {
 		for (Ability current : abilities) {
-			if(current == null) {
+			if (current == null) {
 				continue;
 			}
 			if (current.currentCooldown > 0) {

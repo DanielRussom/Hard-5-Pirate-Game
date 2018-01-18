@@ -20,7 +20,7 @@ public class HealingAbility extends Ability {
 			System.out.println("Missed!");
 		}
 		//TODO Decide targetting method
-		target.takeHit(power);
+		target.takeHeal(power);
 		currentCooldown = cooldown;
 	}
 
