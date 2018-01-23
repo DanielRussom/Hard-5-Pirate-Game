@@ -13,7 +13,7 @@ public class GameController {
 
 	private Pirate player;
 	private ArrayList<Pirate> activePlayers = new ArrayList<Pirate>();
-	private int turnNumber;
+	private int turnNumber = 0;
 	private Pirate enemy;
 
 	/**
@@ -66,12 +66,15 @@ public class GameController {
 		// TODO Tidy - Make more dynamic
 		gameDisplayController.initAbilityButtons();
 		refreshButtons();
+		activePlayers.add(player);
+		activePlayers.add(enemy);
 		gameDisplayController.setPlayerName(player.getName());
 		gameDisplayController.setEnemyName(enemy.getName());
 		// TODO Change this if multiple targets are added
 		// Default targets
 		player.setTarget(enemy);
 		enemy.setTarget(player);	
+		turnNumber = 0;
 		// Updates health labels
 		gameDisplayController.updatePlayerHealth(player.getMaxHealth(), player.getCurrentHealth());
 		gameDisplayController.updateEnemyHealth(enemy.getMaxHealth(), enemy.getCurrentHealth());
