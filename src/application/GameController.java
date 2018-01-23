@@ -12,7 +12,8 @@ public class GameController {
 	private GameDisplayController gameDisplayController;
 
 	private Pirate player;
-
+	private ArrayList<Pirate> activePlayers = new ArrayList<Pirate>();
+	private int turnNumber;
 	private Pirate enemy;
 
 	/**

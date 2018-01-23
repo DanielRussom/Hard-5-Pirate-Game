@@ -3,6 +3,8 @@ package application.model;
 import application.GameController;
 
 public class Pirate {
+	static int uniqueIDCounter = 0;
+	int uniqueID;
 	String name = "Pirate";
 	Ability[] abilities = new Ability[4];
 	int maxHealth;
@@ -59,6 +61,7 @@ public class Pirate {
 		abilities[2] = new HealingAbility("Heal", 25, 4, 100);
 		maxHealth = 100;
 		currentHealth = 50;
+		uniqueID = uniqueIDCounter++;
 	}
 
 	/**
@@ -71,6 +74,7 @@ public class Pirate {
 		abilities[2] = new HealingAbility("Heal", 25, 4, 100);
 		maxHealth = 100;
 		currentHealth = maxHealth;
+		uniqueID = uniqueIDCounter++;
 	}
 
 	/**
