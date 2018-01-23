@@ -15,7 +15,7 @@ public class GameController {
 	private ArrayList<Pirate> activePlayers = new ArrayList<Pirate>();
 	private int turnNumber = 0;
 	private Pirate enemy;
-
+	
 	/**
 	 * 
 	 */
@@ -36,6 +36,17 @@ public class GameController {
 		return instance;
 	}
 
+	/**
+	 * Handles starting the next player's turn
+	 */
+	public void nextTurn() {
+		turnNumber+=1;
+		if(turnNumber >= activePlayers.size()) {
+			turnNumber = 0;
+		}
+		//TODO
+	}
+	
 	/**
 	 * Handles refreshing the action button display
 	 */
