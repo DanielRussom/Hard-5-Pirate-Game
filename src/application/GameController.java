@@ -39,12 +39,13 @@ public class GameController {
 	/**
 	 * Handles starting the next player's turn
 	 */
-	public void nextTurn() {
+	public void handleNextTurn() {
+		refreshButtons();
+		updateHealth();
 		turnNumber+=1;
 		if(turnNumber >= activePlayers.size()) {
 			turnNumber = 0;
 		}
-		//TODO
 	}
 	
 	/**

@@ -101,15 +101,14 @@ public class Pirate {
 	}
 
 	public void performAttack() {
-		//TODO Change this workaround if multiple enemies are added
+		// TODO Change this workaround if multiple enemies are added
 		if (selectedAbility instanceof HealingAbility) {
 			selectedAbility.perform(this, this);
 		} else {
 			selectedAbility.perform(this, target);
 		}
-		GameController.getInstance().refreshButtons();
 		decrementCooldowns();
-		GameController.getInstance().updateHealth();
+		GameController.getInstance().handleNextTurn();
 	}
 
 	/**
@@ -150,7 +149,6 @@ public class Pirate {
 			}
 			if (current.currentCooldown > 0) {
 				current.currentCooldown -= 1;
-				System.out.println(current.getName() + current.currentCooldown);
 			}
 		}
 	}

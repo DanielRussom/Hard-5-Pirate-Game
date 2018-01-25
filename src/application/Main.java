@@ -2,8 +2,6 @@ package application;
 
 import java.io.IOException;
 
-import application.model.Pirate;
-import application.view.GameDisplayController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
