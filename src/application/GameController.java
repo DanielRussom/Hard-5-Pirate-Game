@@ -42,9 +42,17 @@ public class GameController {
 	public void handleNextTurn() {
 		refreshButtons();
 		updateHealth();
+		//Increments turn counter
 		turnNumber+=1;
 		if(turnNumber >= activePlayers.size()) {
 			turnNumber = 0;
+		}
+		if(activePlayers.get(turnNumber).equals(player)) {
+			System.out.println("Player's turn!");
+		} else {
+			//TODO
+			activePlayers.get(turnNumber).setSelectedAbility(0);
+			activePlayers.get(turnNumber).performAttack();
 		}
 	}
 	
