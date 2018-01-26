@@ -15,7 +15,7 @@ public class GameController {
 	private ArrayList<Pirate> activePlayers = new ArrayList<Pirate>();
 	private int turnNumber = 0;
 	private Pirate enemy;
-	
+
 	/**
 	 * 
 	 */
@@ -42,20 +42,20 @@ public class GameController {
 	public void handleNextTurn() {
 		refreshButtons();
 		updateHealth();
-		//Increments turn counter
-		turnNumber+=1;
-		if(turnNumber >= activePlayers.size()) {
+		// Increments turn counter
+		turnNumber += 1;
+		if (turnNumber >= activePlayers.size()) {
 			turnNumber = 0;
 		}
-		if(activePlayers.get(turnNumber).equals(player)) {
+		if (activePlayers.get(turnNumber).equals(player)) {
 			System.out.println("Player's turn!");
 		} else {
-			//TODO
+			// TODO
 			activePlayers.get(turnNumber).setSelectedAbility(0);
 			activePlayers.get(turnNumber).performAttack();
 		}
 	}
-	
+
 	/**
 	 * Handles refreshing the action button display
 	 */
@@ -93,7 +93,7 @@ public class GameController {
 		// TODO Change this if multiple targets are added
 		// Default targets
 		player.setTarget(enemy);
-		enemy.setTarget(player);	
+		enemy.setTarget(player);
 		turnNumber = 0;
 		// Updates health labels
 		gameDisplayController.updatePlayerHealth(player.getMaxHealth(), player.getCurrentHealth());
@@ -138,10 +138,13 @@ public class GameController {
 		this.enemy = enemy;
 	}
 
+	/**
+	 * Updates the health display of active players
+	 */
 	public void updateHealth() {
 		gameDisplayController.updatePlayerHealth(player.getMaxHealth(), player.getCurrentHealth());
 		gameDisplayController.updateEnemyHealth(enemy.getMaxHealth(), enemy.getCurrentHealth());
-		
+
 	}
 
 }

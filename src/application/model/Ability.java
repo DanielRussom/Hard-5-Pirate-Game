@@ -6,7 +6,7 @@ public abstract class Ability {
 	int cooldown;
 	int currentCooldown;
 	int hitChance;
-	
+
 	/**
 	 * 
 	 * @param name
@@ -24,9 +24,17 @@ public abstract class Ability {
 		this.cooldown = cooldown;
 		this.hitChance = hitChance;
 	}
-	
+
+	/**
+	 * Performs an ability
+	 * 
+	 * @param user
+	 *            - Pirate using the ability
+	 * @param target
+	 *            - Target of the ability
+	 */
 	abstract public void perform(Pirate user, Pirate target);
-	
+
 	/**
 	 * @return the name
 	 */
@@ -86,7 +94,12 @@ public abstract class Ability {
 	public void setCurrentCooldown(int currentCooldown) {
 		this.currentCooldown = currentCooldown;
 	}
-	
+
+	/**
+	 * Generates the ability tooltip message
+	 * 
+	 * @return - tooltip message
+	 */
 	public String tooltipMessage() {
 		String message = "";
 		message = name + "\n";
@@ -94,6 +107,6 @@ public abstract class Ability {
 		message += "Power:" + power + "\n";
 		message += "Hit Chance:" + hitChance + "%";
 		return message;
-		
+
 	}
 }
