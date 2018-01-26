@@ -103,6 +103,7 @@ public abstract class Ability {
 	public String tooltipMessage() {
 		String message = "";
 		message = name + "\n";
+		// Displays a separate message if there is no cooldown
 		if (cooldown > 0) {
 			message += "Cooldown: " + cooldown + "\n";
 		} else {

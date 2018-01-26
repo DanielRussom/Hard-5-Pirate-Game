@@ -71,11 +71,17 @@ public class GameController {
 			}
 			// Displays current ability text on current button
 			current.setVisible(true);
-			current.setText(currentAbility.getName());
 			// Updates the tooltip of the ability
 			current.getTooltip().setText(currentAbility.tooltipMessage());
 			// Disables the ability if it is on cooldown
-			current.setDisable(currentAbility.getCurrentCooldown() > 0);
+			if (currentAbility.getCurrentCooldown() > 0) {
+				System.out.println(currentAbility.tooltipMessage());
+				current.setDisable(true);
+				current.setText(currentAbility.getName() + "\n(" + currentAbility.getCurrentCooldown() + ")");
+			} else {
+				current.setDisable(false);
+				current.setText(currentAbility.getName());
+			}
 		}
 	}
 
