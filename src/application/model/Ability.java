@@ -103,9 +103,13 @@ public abstract class Ability {
 	public String tooltipMessage() {
 		String message = "";
 		message = name + "\n";
-		message += "Cooldown: TEST\n";
-		message += "Power:" + power + "\n";
-		message += "Hit Chance:" + hitChance + "%";
+		if (cooldown > 0) {
+			message += "Cooldown: " + cooldown + "\n";
+		} else {
+			message += "No Cooldown\n";
+		}
+		message += "Power: " + power + "\n";
+		message += "Hit Chance: " + hitChance + "%";
 		return message;
 
 	}
