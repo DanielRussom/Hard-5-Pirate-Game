@@ -51,7 +51,7 @@ public class GameController {
 			System.out.println("Player's turn!");
 		} else {
 			// TODO
-			activePlayers.get(turnNumber).setSelectedAbility(0);
+			activePlayers.get(turnNumber).performComputerTurn();
 			activePlayers.get(turnNumber).performAttack();
 		}
 	}

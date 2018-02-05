@@ -1,5 +1,8 @@
 package application.model;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import application.GameController;
 
 public class Pirate {
@@ -12,6 +15,23 @@ public class Pirate {
 	Pirate target;
 	Ability selectedAbility;
 
+	//TODO
+	public void performComputerTurn() {
+		ArrayList<Ability> possibleAbilities = new ArrayList<Ability>();
+		for(int i = 0; i < abilities.length; i++) {
+			if(abilities[i] == null) {
+				continue;
+			}
+			if(abilities[i].getCurrentCooldown() > 0) {
+				continue;
+			}
+			possibleAbilities.add(abilities[i]);
+		}
+		Random rand = new Random();
+		int selected = rand.nextInt(possibleAbilities.size());
+		selectedAbility = possibleAbilities.get(selected);
+	}
+	
 	/**
 	 * @return the selectedAbility
 	 */
