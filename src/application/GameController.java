@@ -48,7 +48,6 @@ public class GameController {
 			turnNumber = 0;
 		}
 		if (activePlayers.get(turnNumber).equals(player)) {
-			System.out.println("Player's turn!");
 		} else {
 			// TODO
 			activePlayers.get(turnNumber).performComputerTurn();
@@ -75,7 +74,6 @@ public class GameController {
 			current.getTooltip().setText(currentAbility.tooltipMessage());
 			// Disables the ability if it is on cooldown
 			if (currentAbility.getCurrentCooldown() > 0) {
-				System.out.println(currentAbility.tooltipMessage());
 				current.setDisable(true);
 				current.setText(currentAbility.getName() + "\n(" + currentAbility.getCurrentCooldown() + ")");
 			} else {

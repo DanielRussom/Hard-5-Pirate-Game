@@ -23,7 +23,6 @@ public class DamagingAbility extends Ability {
 
 	public void perform(Pirate user, Pirate target) {
 		if (currentCooldown > 0) {
-			System.out.println("Cooldown!");
 			return;
 		}
 		Random rand = new Random();

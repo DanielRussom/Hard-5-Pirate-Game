@@ -25,6 +25,11 @@ public class Pirate {
 			if(abilities[i].getCurrentCooldown() > 0) {
 				continue;
 			}
+			if(abilities[i] instanceof HealingAbility) {
+				if(currentHealth >= maxHealth) {
+					continue;
+				}
+			}
 			possibleAbilities.add(abilities[i]);
 		}
 		Random rand = new Random();
@@ -80,8 +85,9 @@ public class Pirate {
 		abilities[1] = new DamagingAbility("Strong Attack", 20, 3, 100);
 		abilities[2] = new HealingAbility("Heal", 25, 4, 100);
 		maxHealth = 100;
-		currentHealth = 50;
+		currentHealth = 100;
 		uniqueID = uniqueIDCounter++;
+		name = "Pirate " + uniqueID;
 	}
 
 	/**
@@ -121,6 +127,7 @@ public class Pirate {
 	}
 
 	public void performAttack() {
+		System.out.println(name + " performed " + selectedAbility.getName());
 		// TODO Change this workaround if multiple enemies are added
 		if (selectedAbility instanceof HealingAbility) {
 			selectedAbility.perform(this, this);
@@ -138,7 +145,6 @@ public class Pirate {
 	 *            - Power of received attack
 	 */
 	public void takeHit(int power) {
-		System.out.println("Hit!");
 		currentHealth -= power;
 		if (currentHealth < 0) {
 			currentHealth = 0;
@@ -152,7 +158,6 @@ public class Pirate {
 	 *            - Power of received heal
 	 */
 	public void takeHeal(int power) {
-		System.out.println("Heal!");
 		currentHealth += power;
 		if (currentHealth > maxHealth) {
 			currentHealth = maxHealth;
