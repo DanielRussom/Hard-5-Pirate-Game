@@ -15,7 +15,9 @@ public class Pirate {
 	Pirate target;
 	Ability selectedAbility;
 
-	//TODO
+	/**
+	 * Performs a turn by the computer
+	 */
 	public void performComputerTurn() {
 		ArrayList<Ability> possibleAbilities = new ArrayList<Ability>();
 		for(int i = 0; i < abilities.length; i++) {

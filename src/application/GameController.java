@@ -37,11 +37,31 @@ public class GameController {
 	}
 
 	/**
+	 * Checks to see if the game is over
+	 * 
+	 * @return if the game is over
+	 */
+	public boolean checkForGameOver() {
+		if (player.getCurrentHealth() == 0) {
+			System.out.println("You died!");
+			return true;
+		}
+		if (enemy.getCurrentHealth() == 0) {
+			System.out.println("You win!");
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Handles starting the next player's turn
 	 */
 	public void handleNextTurn() {
-		refreshButtons();
 		updateHealth();
+		if (checkForGameOver()) {
+			return;
+		}
+		refreshButtons();
 		// Increments turn counter
 		turnNumber += 1;
 		if (turnNumber >= activePlayers.size()) {
